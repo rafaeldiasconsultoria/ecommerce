@@ -21,12 +21,12 @@ router.get('/', function(req, res, next) {
   ];
 
   var _categorias = [
-    {nome: 'Roupas', cor: 'rgb(17, 17, 17)'},
-    {nome: 'Calçados', cor: 'rgb(17, 17, 17)'},
-    {nome: 'Para festas', cor: 'rgb(17, 17, 17)'},
-    {nome: 'Para baladas', cor: 'rgb(17, 17, 17)'},
-    {nome: 'Acessórios', cor: 'rgb(17, 17, 17)'},
-    {nome: 'OUTLET', cor: 'red'}
+    {nome: 'Categoria 1', cor: 'rgb(17, 17, 17)'},
+    {nome: 'Categoria 2', cor: 'rgb(17, 17, 17)'},
+    {nome: 'Categoria 3', cor: 'rgb(17, 17, 17)'},
+    {nome: 'Categoria 4', cor: 'rgb(17, 17, 17)'},
+    {nome: 'Categoria 5', cor: 'rgb(17, 17, 17)'},
+    {nome: 'Categoria 6', cor: 'red'}
   ];
   res.render('index', { __banners: [{banner: '\\images\\produtos\\1.jpg'}], __produtos: _produtos, __produtosPromocao: _produtosPromocao, __categorias: _categorias  });
 });
