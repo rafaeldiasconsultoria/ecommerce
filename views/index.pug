@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  if __banners
+    each _banner in __banners
+      img(src=_banner.banner, style='max-width: 100%; padding: 0px')
+      br
+
+  if __produtos
+    div(style='width: 100%; text-align: center; ')
+      each _produto in __produtos
+        div(style='display: inline-block; width: 48%; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
+          img(src=_produto.imagens.principal, style='width: 100%; border: 0px')
+          p 
+            b #{_produto.nome}
+            br
+            = _produto.descricao.substring(0, 22) + '...'
+          if !_produto.desconto
+            b R$ #{_produto.valor}
+          else
+            small(style='text-decoration: line-through; color: red') R$ #{_produto.valor}
+            b &nbsp; R$ #{_produto.desconto}
+  br
+  <img src="//assets.pagseguro.com.br/ps-integration-assets/banners/pagamento/todos_estatico_550_100.gif" alt="Logotipos de meios de pagamento do PagSeguro" title="Este site aceita pagamentos com as principais bandeiras e bancos, saldo em conta PagSeguro e boleto." style="width: 100%" />
+  if __produtosPromocao
+    br
+    h3 Promoções
+    div(style='width: 100%; text-align: center; ')
+      each _produto in __produtosPromocao
+        div(style='display: inline-block; width: 48%; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
+          img(src=_produto.imagens.principal, style='width: 100%; border: 0px')
+          p 
+            b #{_produto.nome}
+            br
+            = _produto.descricao.substring(0, 22) + '...'
+          if !_produto.desconto
+            b R$ #{_produto.valor}
+          else
+            small(style='text-decoration: line-through; color: red') R$ #{_produto.valor}
+            b &nbsp; R$ #{_produto.desconto}
+
+  if __categorias
+    h3 Categorias
+    div(style='width: 100%; text-align: center; ')
+      each _categoria in __categorias
+        button(style='text-transform: uppercase; border: 1px solid gainsboro; width: 48%; height: 42px; margin: 2px; background: white; color: ' + _categoria.cor ) #{_categoria.nome}

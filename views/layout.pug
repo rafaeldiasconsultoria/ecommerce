@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= title
+    meta(name='viewport', content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body(style='border: 0px; padding: 0px; margin: 0px; color: rgb(17, 17, 17); font-weight: 100; background: black;')
+    block header
+      div(style='position: fixed; width: 100%; text-decoration: none; height: 50px; background: #232f3e; color: white; text-align: center; font-weight: 100; font-size: 30px; padding-top: 8px; margin: 0px; border: 0px; box-sizing: border-box; border-bottom: solid 1px rgb(17, 17, 17);')
+          = 'dias'
+    div(style='border: 0px; box-sizing: border-box; margin: 0px; padding: 8px; padding-top: 50px; background: white;')
+      block content
+
+    block footer
+      div(id='footer', style='background: black; color: white; text-align: center; padding: 10px;')
+        a(href='#')= 'Puts, é seguro mesmo?'
+        br
+        br
+        a(href='#')= 'Condições de frete'
+        br
+        br
+        a(href='#')= 'Política de troca e devolução'
+        br
+        br
+        a(href='#')= 'Atendimento 9 9999-9999'
+        br
+        br
+        br
+        small(style='position: fixed; left: 0px; bottom: 0px; width: 100%; text-align: center; background: black') &copy; all wrongs reserved, Rafael Dias
