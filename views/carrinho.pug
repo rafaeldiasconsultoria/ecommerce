@@ -16,8 +16,9 @@ block content
             else
                 small(style='text-decoration: line-through; color: red') R$ #{_produto.valor}
                 b &nbsp; R$ #{_produto.desconto} &nbsp;
-            
+            button(style='border: 0px') +
             input(type="text", name="quantidade", style="width: 30px; border: solid 1px gainsboro")
+            button(style='border: 0px') -
     div(style="width: 100%; text-align: center")
         br
         button(style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar Compra
