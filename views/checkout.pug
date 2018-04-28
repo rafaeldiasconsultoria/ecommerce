@@ -2,4 +2,72 @@ extends layout
 
 block content
     div(style='width: 100%; text-align: center; ')
-        div(style='display: inline-block; width: 100%; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
+        label
+            b Dados para Contato
+        div(style='display: inline-block; width: 100%; text-align: center; border: 0px; padding-bottom: 2px; margin: 2px;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Nome
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Celular
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b E-Mail
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b CEP
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+
+    div(style='width: 100%; text-align: center; ')
+        label
+            b Dados para Entrega
+        div(style='display: inline-block; width: 100%; text-align: center; border: 0px; padding-bottom: 2px; margin: 2px;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Rua
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Número
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Bairro
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Cidade
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Estado
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+    div(style='width: 100%; text-align: center; ')
+        label
+            b Dados para Pagamento
+        div(style='display: inline-block; width: 100%; text-align: center; border: 0px; padding-bottom: 2px; margin: 2px;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Forma
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Valor
+                br
+                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+    br
+    button(onclick='javascript:window.location="/checkout-sucesso"' style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar
