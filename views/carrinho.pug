@@ -41,4 +41,4 @@ block content
                 td(style='text-align: right; border-top: solid 1px black; font-weight: bold')
                     = 'R$ ' + (totalProdutos + frete - totalDescontos)
         br
-        button(style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar Compra
+        button(onclick='javascript:window.location="/checkout"' style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar Compra
