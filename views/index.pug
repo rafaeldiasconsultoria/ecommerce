@@ -9,7 +9,7 @@ block content
   if __produtos
     div(style='width: 100%; text-align: center; ')
       each _produto in __produtos
-        div(style='display: inline-block; width: 48%; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
+        div(style='display: inline-block; width: 48%; max-width: 330px; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
           img(src=_produto.imagens.principal, style='width: 100%; border: 0px')
           p 
             b #{_produto.nome}
@@ -27,7 +27,7 @@ block content
     h3 Promoções
     div(style='width: 100%; text-align: center; ')
       each _produto in __produtosPromocao
-        div(style='display: inline-block; width: 48%; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
+        div(style='display: inline-block; width: 48%; max-width: 330px; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
           img(src=_produto.imagens.principal, style='width: 100%; border: 0px')
           p 
             b #{_produto.nome}
@@ -43,4 +43,4 @@ block content
     h3 Categorias
     div(style='width: 100%; text-align: center; ')
       each _categoria in __categorias
-        button(style='text-transform: uppercase; border: 1px solid gainsboro; width: 48%; height: 42px; margin: 2px; background: white; color: ' + _categoria.cor ) #{_categoria.nome}
+        button(style='text-transform: uppercase; border: 1px solid gainsboro; width: 48%; max-width: 330px; height: 42px; margin: 2px; background: white; color: ' + _categoria.cor ) #{_categoria.nome}
