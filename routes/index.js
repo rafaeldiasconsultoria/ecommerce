@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
   ];
 
   var _banners = [
-    {banner: '/images/banner-home.jpg'},
+    {banner: '/images/banner-home.jpg', url: '#teste-url'},
   ];
 
   res.render('index', { __banners: _banners, __produtos: _produtos, __produtosPromocao: _produtosPromocao, __categorias: _categorias, __produtosCarrinho: _produtosCarrinho  });
