@@ -35,7 +35,12 @@ router.get('/', function(req, res, next) {
     {nome: 'Produto 11', valor: 123.45, desconto: 98.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'}}
   ];
 
-  res.render('index', { __banners: [{banner: '\\images\\produtos\\1.jpg'}], __produtos: _produtos, __produtosPromocao: _produtosPromocao, __categorias: _categorias, __produtosCarrinho: _produtosCarrinho  });
+  var _banners = [
+    {banner: '/images/banner-home.jpg'},
+    {banner: '/images/produtos/1.jpg'}
+  ];
+
+  res.render('index', { __banners: _banners, __produtos: _produtos, __produtosPromocao: _produtosPromocao, __categorias: _categorias, __produtosCarrinho: _produtosCarrinho  });
 });
 
 module.exports = router;
