@@ -2,9 +2,14 @@ extends layout
 
 block content
     
-  if __produtos
+  if __produtosCarrinho.length > 0
+  - var totalProdutos = 0.00
+  - var frete = 10.65
+  - var totalDescontos = 0.00
     div(style='width: 100%; text-align: center; ')
-      each _produto in __produtos
+      each _produto in __produtosCarrinho
+        - totalProdutos += _produto.valor
+        - totalDescontos += _produto.desconto ? (_produto.valor - _produto.desconto) : 0.00
         div(style='display: inline-block; width: 100%; text-align: center; border: 1px solid gainsboro; padding-bottom: 8px; margin: 2px;')
             img(src=_produto.imagens.principal, style='width: 33%; border: 0px; float: left')
             p 
@@ -16,9 +21,24 @@ block content
             else
                 small(style='text-decoration: line-through; color: red') R$ #{_produto.valor}
                 b &nbsp; R$ #{_produto.desconto} &nbsp;
-            button(style='border: 0px') +
-            input(type="text", name="quantidade", style="width: 30px; border: solid 1px gainsboro")
-            button(style='border: 0px') -
+            br
+            button(style='border: 1px solid gainsboro; height: 32px; width: 32px; background: white') -
+            input(type='text', name="quantidade", style="width: 42px; height: 32px; box-sizing: border-box; border: 1px solid gainsboro; margin-left: 3px; margin-right: 3px")
+            button(style='border: 1px solid gainsboro; height: 32px; width: 32px; background: white') +
     div(style="width: 100%; text-align: center")
+        table(width='100%', cellspacing=0, cellpadding=5)
+            tr
+                td(style='text-align: left; font-weight: bold')= 'Total de Produtos'
+                td(style='text-align: right;')= 'R$ ' + totalProdutos
+            tr
+                td(style='text-align: left; font-weight: bold')= 'Frete'
+                td(style='text-align: right;')= 'R$ ' + frete
+            tr
+                td(style='text-align: left; font-weight: bold')= 'Total de Descontos'
+                td(style='text-align: right;')= 'R$ ' + totalDescontos
+            tr
+                td(style='border-top: solid 1px black; text-align: left; font-weight: bold')= 'Valor Total do Pedido'
+                td(style='text-align: right; border-top: solid 1px black; font-weight: bold')
+                    = 'R$ ' + (totalProdutos + frete - totalDescontos)
         br
         button(style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar Compra

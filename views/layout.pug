@@ -8,6 +8,10 @@ html
     block header
       div(style='position: fixed; width: 100%; text-decoration: none; height: 50px; background: #232f3e; color: white; text-align: center; font-weight: 100; font-size: 30px; padding-top: 8px; margin: 0px; border: 0px; box-sizing: border-box; border-bottom: solid 1px rgb(17, 17, 17);')
           = 'dias'
+          if __produtosCarrinho
+            a(href='/carrinho', style='float: right; position: fixed; right: 20px; z-index: 900')
+              img(src='/images/shopping-bag-solid.png', width='30px')
+
     div(style='border: 0px; box-sizing: border-box; margin: 0px; padding: 8px; padding-top: 50px; background: white;')
       block content
 

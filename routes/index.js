@@ -28,7 +28,14 @@ router.get('/', function(req, res, next) {
     {nome: 'Categoria 5', cor: 'rgb(17, 17, 17)'},
     {nome: 'Categoria 6', cor: 'red'}
   ];
-  res.render('index', { __banners: [{banner: '\\images\\produtos\\1.jpg'}], __produtos: _produtos, __produtosPromocao: _produtosPromocao, __categorias: _categorias  });
+
+  var _produtosCarrinho = [
+    {nome: 'Produto 9', valor: 123.45, desconto: 98.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'} },
+    {nome: 'Produto 10', valor: 123.45, desconto: 98.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'}},
+    {nome: 'Produto 11', valor: 123.45, desconto: 98.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'}}
+  ];
+
+  res.render('index', { __banners: [{banner: '\\images\\produtos\\1.jpg'}], __produtos: _produtos, __produtosPromocao: _produtosPromocao, __categorias: _categorias, __produtosCarrinho: _produtosCarrinho  });
 });
 
 module.exports = router;
