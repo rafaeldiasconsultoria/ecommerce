@@ -2,6 +2,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+input{
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
 #footer a {
   text-decoration: none;
   color: white;
