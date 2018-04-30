@@ -3,7 +3,7 @@ extends layout
 block content
   if __banners
     each _banner in __banners
-      img(src=_banner.banner, style='max-width: 100%; padding: 0px', onclick='javascript:window.location="' + _banner.url + '"')
+      img(src=_banner.banner, style='width: auto; max-width: 100%; padding: 0px', onclick='javascript:window.location="' + _banner.url + '"')
       br
 
   if __produtos
