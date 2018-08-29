@@ -12,6 +12,7 @@ router.get('/iniciarTransacao', function (req, res, next) {
         "url": "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?" + process.env.PagSeguroAPIToken,
     }, (error, response, body) => {
         if (error) {
+            data = error;
             //return console.dir(error);
         }
         data = JSON.parse(body);
