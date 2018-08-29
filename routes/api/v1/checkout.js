@@ -8,7 +8,6 @@ router.get('/iniciarTransacao', function (req, res, next) {
     var data = '......';
 
     Request.post({
-        "headers": { "content-type": "application/json" },
         "url": "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?" + process.env.PagSeguroAPIToken,
     }, (error, response, body) => {
         if (error) {
