@@ -6,11 +6,12 @@ var Request = require("request");
 /* GET users listing. */
 router.get('/iniciarTransacao', function (req, res, next) {
     var data = '......';
-
+    var ulrServico = process.env.PagSeguroWS + 
+                    "/sessions?email=" + process.env.PagSeguroEMail + 
+                    "&token=" + process.env.PagSeguroAPIToken;
     Request.post({
         "headers": {"Content-Type": "application/x-www-form-urlencoded"},
-        "url": "https://ws.sandbox.pagseguro.uol.com.br/v2/sessions?email=" + process.env.PagSeguroEMail + 
-        "&token=" + process.env.PagSeguroAPIToken,
+        "url": ulrServico,
     }, (error, response, body) => {
         if (error) {
             //data = error;
