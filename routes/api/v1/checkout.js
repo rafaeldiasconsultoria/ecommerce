@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Request = require("request");
-
+var Request = require('request');
 
 /* GET users listing. */
 router.get('/iniciarTransacao', function (req, res, next) {
@@ -12,12 +11,17 @@ router.get('/iniciarTransacao', function (req, res, next) {
     Request.post({
         "headers": {"Content-Type": "application/x-www-form-urlencoded"},
         "url": ulrServico,
+
     }, (error, response, body) => {
         if (error) {
-            //data = error;
             res.send(error);
         }
-        data = response.body;
+        
+        var parseString = require('xml2js').parseString;
+        parseString(response.body, function (err, result) {
+            data = result;
+        });
+
         res.send(data);
     });
 });
