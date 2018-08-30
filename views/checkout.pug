@@ -14,6 +14,7 @@ block content
                 }
             }
         );
+        localStorage.setItem('valorCompra', 1234.56);
 
     div(style='width: 100%; text-align: center; ')
         label
@@ -82,6 +83,44 @@ block content
                 label()
                     b Valor
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(type='text', id='textValor', readonly, style='width: 96%; height: 32px; border: 1px solid gainsboro;')
     br
-    button(onclick='javascript:window.location="/checkout-sucesso"' style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar
+    button(onclick='onCheckOut();' style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar
+    script(src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js", async)
+    script.
+        (function() {
+            $('#textValor').val(localStorage.getItem('valorCompra'));
+        })();
+
+        function onCheckOut(){
+            // javascript:window.location="/checkout-sucesso"
+            PagSeguroDirectPayment.setSessionId(RSD__SessionID);
+
+            PagSeguroDirectPayment.onSenderHashReady(
+                function(response){
+                    if(response.status == 'error') {
+                        console.log(response.message);
+                        return false;
+                    }
+                var hash = response.senderHash;
+                console.log(hash);
+                }
+            );
+
+            PagSeguroDirectPayment.getPaymentMethods(
+                {
+                    amount: localStorage.getItem('valorCompra'),
+                    success: function(response) {
+                        //meios de pagamento disponíveis
+                        console.log(response);
+                    },
+                    error: function(response) {
+                        //tratamento do erro
+                        console.log('Deu erro... '  + response);
+                    },
+                    complete: function(response) {
+                        //tratamento comum para todas chamadas
+                    }
+                }
+            );
+        }

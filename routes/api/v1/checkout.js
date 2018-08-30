@@ -14,7 +14,6 @@ router.get('/iniciarTransacao', function (req, res, next) {
     Request.post({
         "headers": {"Content-Type": "application/x-www-form-urlencoded"},
         "url": ulrServico,
-
     }, (error, response, body) => {
         if (error) {
             res.send(error);
