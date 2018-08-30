@@ -47,11 +47,11 @@ router.post('/', function (req, res, next) {
         }
         
         var parseString = require('xml2js').parseString;
-        parseString(response.body, function (err, result) {
-            data = result;
-        });
+        // parseString(response.body, function (err, result) {
+        //     data = result;
+        // });
 
-        res.send(data);
+        res.send(result);
     });
 });
 
