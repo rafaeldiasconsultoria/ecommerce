@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
     Request.post({
         "headers": {"Content-Type": "application/x-www-form-urlencoded", "charset": "ISO-8859-1"},
         "url": ulrServico,
-        "body": req.body,
+        "data": req.body,
     }, (error, response, body) => {
         if (error) {
             res.send(error);
