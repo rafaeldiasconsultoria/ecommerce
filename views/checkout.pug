@@ -5,8 +5,10 @@ block content
         var RSD__SessionID = '';
         $.ajax(
             {
-                url: "https://rafaeldias.herokuapp.com/api/v1/checkout/iniciartransacao",
-                type: 'POST',
+                headers: {'Access-Control-Allow-Origin': '*'},
+                url: "/api/v1/checkout/iniciartransacao",
+                type: 'GET',
+                accepts: 'json',
                 success: function(result){
                     RSD__SessionID = result.session.id[0];
                 }

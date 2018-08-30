@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 var Request = require('request');
 
-/* GET users listing. */
+router.options('/iniciarTransacao', function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+});
+
 router.get('/iniciarTransacao', function (req, res, next) {
     var data = '......';
     var ulrServico = process.env.PagSeguroWS + 
