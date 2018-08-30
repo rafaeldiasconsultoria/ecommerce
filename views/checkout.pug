@@ -1,6 +1,18 @@
 extends layout
 
 block content
+    script.
+        var RSD__SessionID = '';
+        $.ajax(
+            {
+                url: "https://rafaeldias.herokuapp.com/api/v1/checkout/iniciartransacao",
+                type: 'POST',
+                success: function(result){
+                    RSD__SessionID = result.session.id[0];
+                }
+            }
+        );
+
     div(style='width: 100%; text-align: center; ')
         label
             b Dados para Contato
