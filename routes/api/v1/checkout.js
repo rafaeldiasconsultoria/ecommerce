@@ -38,7 +38,7 @@ router.post('/', function (req, res, next) {
                     "&token=" + process.env.PagSeguroAPIToken +
                     "";
     Request.post({
-        "headers": {"Content-Type": "application/x-www-form-urlencoded"},
+        "headers": {"Content-Type": "application/x-www-form-urlencoded", "charset": "ISO-8859-1"},
         "url": ulrServico,
         "body": req.body,
     }, (error, response, body) => {
