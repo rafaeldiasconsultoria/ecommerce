@@ -35,7 +35,8 @@ router.post('/', function (req, res, next) {
     var data = '';
     var ulrServico = process.env.PagSeguroWS + 
                     "/transactions?email=" + process.env.PagSeguroEMail + 
-                    "&token=" + process.env.PagSeguroAPIToken;
+                    "&token=" + process.env.PagSeguroAPIToken +
+                    "&" + req.body;
     Request.post({
         "headers": {"Content-Type": "application/x-www-form-urlencoded"},
         "url": ulrServico,
