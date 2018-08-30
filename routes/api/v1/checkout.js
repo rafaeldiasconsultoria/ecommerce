@@ -51,7 +51,7 @@ router.post('/', function (req, res, next) {
         //     data = result;
         // });
 
-        res.send(result);
+        res.send(req.body);
     });
 });
 
