@@ -155,7 +155,7 @@ block content
             $.ajax(
                 {
                     headers: {'Access-Control-Allow-Origin': '*'},
-                    url: "/api/v1/checkout?" + boleto,
+                    url: "/api/v1/checkout?senderHash="=PagSeguroDirectPayment.getSenderHash(),
                     type: 'POST',
                     accepts: 'json',
                     success: function(result){
