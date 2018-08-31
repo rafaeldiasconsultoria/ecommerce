@@ -35,11 +35,8 @@ router.post('/', function (req, res, next) {
     var data = '';
     var ulrServico = process.env.PagSeguroWS + 
                     "/transactions?email=" + process.env.PagSeguroEMail + 
-                    "&token=" + process.env.PagSeguroAPIToken +
-<<<<<<< HEAD
-                    "&" + req.body;
-    
-
+                    "&token=" + process.env.PagSeguroAPIToken;
+  
                     var boleto = 'paymentMode=default';
                     boleto = boleto + '&paymentMethod=boleto';
                     boleto = boleto + '&receiverEmail=suporte@lojamodelo.com.br';
