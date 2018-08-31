@@ -39,7 +39,7 @@ router.post('/', function (req, res, next) {
                     "";
     Request.post({
         "headers": {"Content-Type": "application/x-www-form-urlencoded", "charset": "ISO-8859-1"},
-        "url": ulrServico,
+        "url": ulrServico+req.body,
         "data": req.body,
     }, (error, response, body) => {
         if (error) {
