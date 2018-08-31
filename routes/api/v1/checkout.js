@@ -98,7 +98,6 @@ router.post('/', function (req, res, next) {
                         ,shippingCost: '1.00'
                     };
 
-                    var tt = "https://ws.sandbox.pagseguro.uol.com.br/v2/transactions?email=rafael.2dias@live.com&token=3D72C0BC2ECC499486CEC02DF7B721BD&";
     Request.post({
         "headers": {"Content-Type": "application/x-www-form-urlencoded"},
         "url": ulrServico,
