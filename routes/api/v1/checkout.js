@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
                     var __boleto = {
                         paymentMode: 'default'
                         ,paymentMethod: 'boleto'
-                        ,receiverEmail: 'suporte@lojamodelo.com.br'
+                        ,receiverEmail: 'rafael.2dias@live.com'
                         ,currency: 'BRL'
                         ,extraAmount: '1.00'
                         ,itemId1: '0001'
