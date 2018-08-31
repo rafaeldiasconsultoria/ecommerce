@@ -36,6 +36,7 @@ router.post('/', function (req, res, next) {
     var ulrServico = process.env.PagSeguroWS + 
                     "/transactions?email=" + process.env.PagSeguroEMail + 
                     "&token=" + process.env.PagSeguroAPIToken +
+<<<<<<< HEAD
                     "&" + req.body;
     
 
@@ -108,11 +109,11 @@ router.post('/', function (req, res, next) {
         }
         
         var parseString = require('xml2js').parseString;
-        parseString(response.body, function (err, result) {
-            data = result;
-        });
+        // parseString(response.body, function (err, result) {
+        //     data = result;
+        // });
 
-        res.send(data);
+        res.send(req.body);
     });
 });
 
