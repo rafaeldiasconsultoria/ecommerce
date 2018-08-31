@@ -53,7 +53,7 @@ router.post('/', function (req, res, next) {
                         ,senderCPF: '22111944785'
                         ,senderAreaCode: '11'
                         ,senderPhone: '56273440'
-                        ,senderEmail: 'comprador@uol.com.br'
+                        ,senderEmail: 'comprador@sandbox.pagseguro.com.br'
                         ,senderHash: req.query.senderHash
                         ,shippingAddressStreet: 'Av. Brig. Faria Lima'
                         ,shippingAddressNumber: '1384'
