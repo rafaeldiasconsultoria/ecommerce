@@ -81,7 +81,8 @@ router.post('/', function (req, res, next) {
         //     data = result;
         // });
 
-        res.send(req.body);
+        // res.send(req.body);
+        res.redirect('/checkout-sucesso');
     });
 });
 
