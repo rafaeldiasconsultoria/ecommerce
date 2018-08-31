@@ -38,33 +38,33 @@ router.post('/', function (req, res, next) {
                     "&token=" + process.env.PagSeguroAPIToken;
   
                     var __boleto = {
-                        paymentMode: 'default'
-                        ,paymentMethod: 'boleto'
-                        ,receiverEmail: 'rafael.2dias@live.com'
-                        ,currency: 'BRL'
-                        ,extraAmount: '1.00'
-                        ,itemId1: '0001'
-                        ,itemDescription1: 'Notebook Prata'
-                        ,itemAmount1: '24300.00'
-                        ,itemQuantity1: '1'
-                        ,notificationURL: 'https://sualoja.com.br/notifica.html'
-                        ,reference: 'REF1234'
-                        ,senderName: 'Jose Comprador'
-                        ,senderCPF: '22111944785'
-                        ,senderAreaCode: '11'
-                        ,senderPhone: '56273440'
-                        ,senderEmail: 'comprador@sandbox.pagseguro.com.br'
+                        paymentMode: req.query.paymentMode
+                        ,paymentMethod: req.query.paymentMethod
+                        ,receiverEmail: req.query.receiverEmail
+                        ,currency: req.query.currency
+                        ,extraAmount: req.query.extraAmount
+                        ,itemId1: req.query.itemId1
+                        ,itemDescription1: req.query.itemDescription1
+                        ,itemAmount1: req.query.itemAmount1
+                        ,itemQuantity1: req.query.itemQuantity1
+                        ,notificationURL: req.query.notificationURL
+                        ,reference: req.query.reference
+                        ,senderName: req.query.senderName
+                        ,senderCPF: req.query.senderCPF
+                        ,senderAreaCode: req.query.senderAreaCode
+                        ,senderPhone: req.query.senderPhone
+                        ,senderEmail: req.query.senderEmail
                         ,senderHash: req.query.senderHash
-                        ,shippingAddressStreet: 'Av. Brig. Faria Lima'
-                        ,shippingAddressNumber: '1384'
-                        ,shippingAddressComplement: '5o andar'
-                        ,shippingAddressDistrict: 'Jardim Paulistano'
-                        ,shippingAddressPostalCode: '01452002'
-                        ,shippingAddressCity: 'Sao Paulo'
-                        ,shippingAddressState: 'SP'
-                        ,shippingAddressCountry: 'BRA'
-                        ,shippingType: '1'
-                        ,shippingCost: '1.00'
+                        ,shippingAddressStreet: req.query.shippingAddressStreet
+                        ,shippingAddressNumber: req.query.shippingAddressNumber
+                        ,shippingAddressComplement: req.query.shippingAddressComplement
+                        ,shippingAddressDistrict: shippingAddressDistrict
+                        ,shippingAddressPostalCode: req.query.shippingAddressPostalCode
+                        ,shippingAddressCity: req.query.shippingAddressCity
+                        ,shippingAddressState: req.query.shippingAddressState
+                        ,shippingAddressCountry: req.query.shippingAddressCountry
+                        ,shippingType: req.query.shippingTypr
+                        ,shippingCost: req.query.shippingCost
                     };
 
     Request.post({
