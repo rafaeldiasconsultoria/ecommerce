@@ -159,6 +159,7 @@ block content
                 success: function(response) {
                     //token gerado, esse deve ser usado na chamada da API do Checkout Transparente
                     _cardToken = response.card.token;
+                    localStorage.setItem('cardToken', response.card.token);
                     console.log('sucess0 ' + response);
                 },
                 error: function(response) {
@@ -193,7 +194,7 @@ block content
             boleto = boleto + '&shippingAddressCity=' + $('#txtCidade').val();
             boleto = boleto + '&shippingAddressState=' + $('#txtEstado').val();
             boleto = boleto + '&shippingAddressCountry=BRA';
-            boleto = boleto + '&creditCardToken=' + _cardToken.replace('"','').replace('"','');
+            boleto = boleto + '&creditCardToken=' + localStorage.getItem('cardToken').replace('"','').replace('"','');
             boleto = boleto + '&installmentQuantity=1';
             boleto = boleto + '&installmentValue=' + $('#txtValor').val();
             boleto = boleto + '&noInterestInstallmentQuantity=3';
