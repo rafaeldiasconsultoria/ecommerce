@@ -47,7 +47,7 @@ router.post('/', function (req, res, next) {
                         ,itemDescription1: req.query.itemDescription1
                         ,itemAmount1: req.query.itemAmount1
                         ,itemQuantity1: req.query.itemQuantity1
-                        ,notificationURL: req.query.notificationURL
+                        ,notificationURL: process.env.PagSeguroNotificationURL
                         ,reference: req.query.reference
                         ,senderName: req.query.senderName
                         ,senderCPF: req.query.senderCPF

@@ -149,6 +149,26 @@ block content
                     }
                 }
             );
+            var _opcoesPagto;
+            PagSeguroDirectPayment.getInstallments(
+                {	
+                    amount: $('#txtValor').val(),
+                    brand: $('#txtBandeira').val(),
+                    maxInstallmentNoInterest: 3,
+                    success: function(response) {
+                        //opções de parcelamento disponível
+                        _opcoesPagto = response.installments;
+                        console.log(response);                        
+                    },
+                    error: function(response) {
+                    //tratamento do erro
+                    },
+                    complete: function(response) {
+                    //tratamento comum para todas chamadas
+                    }
+            }
+        );
+
             var _cardToken = '';
             var param = {
                 cardNumber: $('#txtNumeroCartao').val(),
