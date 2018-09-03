@@ -114,6 +114,8 @@ block content
     button(onclick='onCheckOut();' style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar
     script(src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js", async)
     script.
+        var _opcoesPagto;
+        var _cardToken;
         (function() {
             $('#txtValor').val(localStorage.getItem('valorCompra'));
         })();
@@ -149,7 +151,6 @@ block content
                     }
                 }
             );
-            var _opcoesPagto;
             PagSeguroDirectPayment.getInstallments(
                 {	
                     amount: $('#txtValor').val(),
@@ -169,7 +170,6 @@ block content
             }
         );
 
-            var _cardToken = '';
             var param = {
                 cardNumber: $('#txtNumeroCartao').val(),
                 brand: $('#txtBandeira').val(),
