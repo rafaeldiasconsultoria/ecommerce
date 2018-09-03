@@ -159,9 +159,11 @@ block content
                 success: function(response) {
                     //token gerado, esse deve ser usado na chamada da API do Checkout Transparente
                     _cardToken = response.card.token;
+                    console.log('sucess0 ' + response);
                 },
                 error: function(response) {
                     //tratamento do erro
+                    console.log('err0 ' + response);
                 },
                 complete: function(response) {
                     //tratamento comum para todas chamadas
@@ -194,7 +196,7 @@ block content
             boleto = boleto + '&creditCardToken=' + _cardToken.replace('"','').replace('"','');
             boleto = boleto + '&installmentQuantity=1';
             boleto = boleto + '&installmentValue=' + $('#txtValor').val();
-            boleto = boleto + '&noInterestInstallmentQuantity=1';
+            boleto = boleto + '&noInterestInstallmentQuantity=3';
             boleto = boleto + '&creditCardHolderName=' + $('#txtNome').val();
             boleto = boleto + '&creditCardHolderCPF=' + $('#txtCPF').val()
             boleto = boleto + '&creditCardHolderBirthDate=27/10/1987';
