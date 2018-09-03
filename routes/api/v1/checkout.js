@@ -93,14 +93,14 @@ router.post('/', function (req, res, next) {
         if (error) {
             res.send(error);
         }
-        
+        var transactionResponse;
         var parseString = require('xml2js').parseString;
-        // parseString(response.body, function (err, result) {
-        //     data = result;
-        // });
+        parseString(response.body, function (err, result) {
+            transactionResponse = result;
+        });
 
-        // res.send(req.body);
-        res.redirect('/checkout-sucesso');
+        res.send(transactionResponse);
+        //res.redirect('/checkout-sucesso');
     });
 });
 
