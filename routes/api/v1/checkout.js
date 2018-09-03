@@ -58,7 +58,7 @@ router.post('/', function (req, res, next) {
                         ,shippingAddressStreet: req.query.shippingAddressStreet
                         ,shippingAddressNumber: req.query.shippingAddressNumber
                         ,shippingAddressComplement: req.query.shippingAddressComplement
-                        ,shippingAddressDistrict: shippingAddressDistrict
+                        ,shippingAddressDistrict: req.query.shippingAddressDistrict
                         ,shippingAddressPostalCode: req.query.shippingAddressPostalCode
                         ,shippingAddressCity: req.query.shippingAddressCity
                         ,shippingAddressState: req.query.shippingAddressState
