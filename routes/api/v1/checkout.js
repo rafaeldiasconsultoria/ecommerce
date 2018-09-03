@@ -64,7 +64,7 @@ router.post('/', function (req, res, next) {
                         ,shippingAddressState: req.query.shippingAddressState
                         ,shippingAddressCountry: req.query.shippingAddressCountry
                         ,shippingType: '1'
-                        ,shippingCost: 0.00
+                        ,shippingCost: '0.00'
                         ,creditCardToken: req.query.creditCardToken
                         ,installmentQuantity: req.query.installmentQuantity
                         ,installmentValue: req.query.installmentValue
