@@ -81,7 +81,7 @@ router.post('/', function (req, res, next) {
                         ,billingAddressPostalCode: req.query.shippingAddressPostalCode
                         ,billingAddressCity: req.query.shippingAddressCity
                         ,billingAddressState: req.query.shippingAddressState
-                        ,billingAddressCountry=BRA
+                        ,billingAddressCountry: 'BRA'
 
                     };
 
