@@ -81,9 +81,30 @@ block content
         div(style='display: inline-block; width: 100%; text-align: center; border: 0px; padding-bottom: 2px; margin: 2px;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
-                    b Forma
+                    b Número do Cartão
                 br
-                input(id='txtFormaPagamento', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtNumeroCartao', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Bandeira
+                br
+                input(id='txtBandeira', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b CVV
+                br
+                input(id='txtCVV', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Mês de Expiração
+                br
+                input(id='txtMesExpiracao', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b Ano de Expiração
+                br
+                input(id='txtAnoExpiracao', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b Valor
@@ -128,6 +149,25 @@ block content
                     }
                 }
             );
+            var _cardToken = '';
+            var param = {
+                cardNumber: document.getElementById('#cartao').value,
+                brand: document.getElementById('#bandeira').value,
+                cvv: document.getElementById('#cvv').value,
+                expirationMonth: document.getElementById('#validadeMes').value,
+                expirationYear: document.getElementById('#validadeAno').value,
+                success: function(response) {
+                    //token gerado, esse deve ser usado na chamada da API do Checkout Transparente
+                    _cardToken = response.card.token;
+                },
+                error: function(response) {
+                    //tratamento do erro
+                },
+                complete: function(response) {
+                    //tratamento comum para todas chamadas
+                }
+            }
+            PagSeguroDirectPayment.createCardToken(param);
 
             var boleto = 'currency=BRL';
             boleto = boleto + '&extraAmount=1.00';
@@ -151,15 +191,15 @@ block content
             boleto = boleto + '&shippingAddressCity=' + $('#txtCidade').val();
             boleto = boleto + '&shippingAddressState=' + $('#txtEstado').val();
             boleto = boleto + '&shippingAddressCountry=BRA';
-            boleto = boleto + '&creditCardToken=4as56d4a56d456as456dsa';
-            boleto = boleto + '&installmentQuantity=5';
-            boleto = boleto + '&installmentValue=125.22';
-            boleto = boleto + '&noInterestInstallmentQuantity=2';
-            boleto = boleto + '&creditCardHolderName=Jose Comprador';
-            boleto = boleto + '&creditCardHolderCPF=22111944785';
+            boleto = boleto + '&creditCardToken=' + _cardToken.replace('"','').replace('"','');
+            boleto = boleto + '&installmentQuantity=1';
+            boleto = boleto + '&installmentValue=' + $('#txtValor').val();
+            boleto = boleto + '&noInterestInstallmentQuantity=0';
+            boleto = boleto + '&creditCardHolderName=' + $('#txtNome').val();
+            boleto = boleto + '&creditCardHolderCPF=' + $('#txtCPF').val()
             boleto = boleto + '&creditCardHolderBirthDate=27/10/1987';
             boleto = boleto + '&creditCardHolderAreaCode=11';
-            boleto = boleto + '&creditCardHolderPhone=56273440';
+            boleto = boleto + '&creditCardHolderPhone=' + $('#txtCelular').val()
             
             $.ajax(
                 {
