@@ -38,9 +38,9 @@ router.post('/', function (req, res, next) {
                     "&token=" + process.env.PagSeguroAPIToken;
   
                     var __boleto = {
-                        paymentMode: req.query.paymentMode
-                        ,paymentMethod: req.query.paymentMethod
-                        ,receiverEmail: req.query.receiverEmail
+                        paymentMode: 'standard'
+                        ,paymentMethod: 'creditCard'
+                        ,receiverEmail: process.env.PagSeguroEMail
                         ,currency: req.query.currency
                         ,extraAmount: req.query.extraAmount
                         ,itemId1: req.query.itemId1
@@ -63,8 +63,18 @@ router.post('/', function (req, res, next) {
                         ,shippingAddressCity: req.query.shippingAddressCity
                         ,shippingAddressState: req.query.shippingAddressState
                         ,shippingAddressCountry: req.query.shippingAddressCountry
-                        ,shippingType: req.query.shippingTypr
-                        ,shippingCost: req.query.shippingCost
+                        ,shippingType: '1'
+                        ,shippingCost: '0'
+                        ,creditCardToken: req.query.creditCardToken
+                        ,installmentQuantity: req.query.installmentQuantity
+                        ,installmentValue: req.query.installmentValue
+                        ,noInterestInstallmentQuantity: req.query.noInterestInstallmentQuantity
+                        ,creditCardHolderName: req.query.creditCardHolderName
+                        ,creditCardHolderCPF: req.query.creditCardHolderCPF
+                        ,creditCardHolderBirthDate: req.query.creditCardHolderBirthDate
+                        ,creditCardHolderAreaCode: req.query.creditCardHolderAreaCode
+                        ,creditCardHolderPhone: req.query.creditCardHolderPhone
+
                     };
 
     Request.post({

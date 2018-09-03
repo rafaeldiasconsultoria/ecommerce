@@ -24,22 +24,27 @@ block content
                 label()
                     b Nome
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtNome', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+            div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
+                label()
+                    b CPF
+                br
+                input(id='txtCPF', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b Celular
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtCelular', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b E-Mail
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtEMail', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b CEP
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtCEP', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
 
     div(style='width: 100%; text-align: center; ')
         label
@@ -49,27 +54,27 @@ block content
                 label()
                     b Rua
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtRua', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b Número
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtNumero', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b Bairro
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtBairro', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b Cidade
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtCidade', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b Estado
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtEstado', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
     div(style='width: 100%; text-align: center; ')
         label
             b Dados para Pagamento
@@ -78,18 +83,18 @@ block content
                 label()
                     b Forma
                 br
-                input(type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtFormaPagamento', type='text', style='width: 96%; height: 32px; border: 1px solid gainsboro;')
             div(style='display: inline-block; width: 98%; max-width: 330px; text-align: left; border: 1px solid gainsboro; padding: 8px; margin: 2px;')
                 label()
                     b Valor
                 br
-                input(type='text', id='textValor', readonly, style='width: 96%; height: 32px; border: 1px solid gainsboro;')
+                input(id='txtValor', type='text', readonly, style='width: 96%; height: 32px; border: 1px solid gainsboro;')
     br
     button(onclick='onCheckOut();' style="color: white; font-size: 16px; width: 98%; height: 42px; background: green; border: 0px") Finalizar
     script(src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js", async)
     script.
         (function() {
-            $('#textValor').val(localStorage.getItem('valorCompra'));
+            $('#txtValor').val(localStorage.getItem('valorCompra'));
         })();
 
         function onCheckOut(){
@@ -124,33 +129,37 @@ block content
                 }
             );
 
-            var boleto = 'paymentMode=default';
-            boleto = boleto + '&paymentMethod=boleto';
-            boleto = boleto + '&receiverEmail=rafael.2dias@live.com';
-            boleto = boleto + '&currency=BRL';
+            var boleto = 'currency=BRL';
             boleto = boleto + '&extraAmount=1.00';
             boleto = boleto + '&itemId1=0001';
             boleto = boleto + '&itemDescription1=Notebook Prata';
-            boleto = boleto + '&itemAmount1=300.00';
+            boleto = boleto + '&itemAmount1=' + $('#textValor').val();
             boleto = boleto + '&itemQuantity1=1';
             boleto = boleto + '&notificationURL=https://sualoja.com.br/notifica.html';
             boleto = boleto + '&reference=REF1234';
-            boleto = boleto + '&senderName=Jose Comprador';
-            boleto = boleto + '&senderCPF=22111944785';
+            boleto = boleto + '&senderName=' + $('#txtNome').val();
+            boleto = boleto + '&senderCPF=' + $('#txtCPF').val();
             boleto = boleto + '&senderAreaCode=11';
-            boleto = boleto + '&senderPhone=56273440';
-            boleto = boleto + '&senderEmail=comprador@uol.com.br';
+            boleto = boleto + '&senderPhone=' + $('#txtCelular').val();
+            boleto = boleto + '&senderEmail=' + $('#txtEMail').val();
             boleto = boleto + '&senderHash=' + PagSeguroDirectPayment.getSenderHash().replace('"','').replace('"','');
-            boleto = boleto + '&shippingAddressStreet=Av. Brig. Faria Lima';
-            boleto = boleto + '&shippingAddressNumber=1384';
-            boleto = boleto + '&shippingAddressComplement=5o andar';
-            boleto = boleto + '&shippingAddressDistrict=Jardim Paulistano';
-            boleto = boleto + '&shippingAddressPostalCode=01452002';
-            boleto = boleto + '&shippingAddressCity=Sao Paulo';
-            boleto = boleto + '&shippingAddressState=SP';
+            boleto = boleto + '&shippingAddressStreet=' + $('#txtRua').val();
+            boleto = boleto + '&shippingAddressNumber=' + $('#txtNumero').val();
+            boleto = boleto + '&shippingAddressComplement=';
+            boleto = boleto + '&shippingAddressDistrict=' + $('#txtBairro').val();
+            boleto = boleto + '&shippingAddressPostalCode=' + $('#txtCEP').val();
+            boleto = boleto + '&shippingAddressCity=' + $('#txtCidade').val();
+            boleto = boleto + '&shippingAddressState=' + $('#txtEstado').val();
             boleto = boleto + '&shippingAddressCountry=BRA';
-            boleto = boleto + '&shippingType=1';
-            boleto = boleto + '&shippingCost=1.00';
+            boleto = boleto + '&creditCardToken=4as56d4a56d456as456dsa';
+            boleto = boleto + '&installmentQuantity=5';
+            boleto = boleto + '&installmentValue=125.22';
+            boleto = boleto + '&noInterestInstallmentQuantity=2';
+            boleto = boleto + '&creditCardHolderName=Jose Comprador';
+            boleto = boleto + '&creditCardHolderCPF=22111944785';
+            boleto = boleto + '&creditCardHolderBirthDate=27/10/1987';
+            boleto = boleto + '&creditCardHolderAreaCode=11';
+            boleto = boleto + '&creditCardHolderPhone=56273440';
             
             $.ajax(
                 {
