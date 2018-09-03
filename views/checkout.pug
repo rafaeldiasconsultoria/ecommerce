@@ -194,7 +194,7 @@ block content
             boleto = boleto + '&creditCardToken=' + _cardToken.replace('"','').replace('"','');
             boleto = boleto + '&installmentQuantity=1';
             boleto = boleto + '&installmentValue=' + $('#txtValor').val();
-            boleto = boleto + '&noInterestInstallmentQuantity=0';
+            boleto = boleto + '&noInterestInstallmentQuantity=1';
             boleto = boleto + '&creditCardHolderName=' + $('#txtNome').val();
             boleto = boleto + '&creditCardHolderCPF=' + $('#txtCPF').val()
             boleto = boleto + '&creditCardHolderBirthDate=27/10/1987';
