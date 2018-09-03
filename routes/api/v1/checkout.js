@@ -38,7 +38,7 @@ router.post('/', function (req, res, next) {
                     "&token=" + process.env.PagSeguroAPIToken;
   
                     var __boleto = {
-                        paymentMode: 'standard'
+                        paymentMode: 'default'
                         ,paymentMethod: 'creditCard'
                         ,receiverEmail: process.env.PagSeguroEMail
                         ,currency: req.query.currency
@@ -64,7 +64,7 @@ router.post('/', function (req, res, next) {
                         ,shippingAddressState: req.query.shippingAddressState
                         ,shippingAddressCountry: req.query.shippingAddressCountry
                         ,shippingType: '1'
-                        ,shippingCost: '0'
+                        ,shippingCost: 0.00
                         ,creditCardToken: req.query.creditCardToken
                         ,installmentQuantity: req.query.installmentQuantity
                         ,installmentValue: req.query.installmentValue
@@ -74,6 +74,14 @@ router.post('/', function (req, res, next) {
                         ,creditCardHolderBirthDate: req.query.creditCardHolderBirthDate
                         ,creditCardHolderAreaCode: req.query.creditCardHolderAreaCode
                         ,creditCardHolderPhone: req.query.creditCardHolderPhone
+                        ,billingAddressStreet: req.query.shippingAddressStreet
+                        ,billingAddressNumber: req.query.shippingAddressNumber
+                        ,billingAddressComplement: req.query.shippingAddressComplement
+                        ,billingAddressDistrict: req.query.shippingAddressDistrict
+                        ,billingAddressPostalCode: req.query.shippingAddressPostalCode
+                        ,billingAddressCity: req.query.shippingAddressCity
+                        ,billingAddressState: req.query.shippingAddressState
+                        ,billingAddressCountry=BRA
 
                     };
 
