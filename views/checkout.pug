@@ -151,11 +151,11 @@ block content
             );
             var _cardToken = '';
             var param = {
-                cardNumber: document.getElementById('#cartao').value,
-                brand: document.getElementById('#bandeira').value,
-                cvv: document.getElementById('#cvv').value,
-                expirationMonth: document.getElementById('#validadeMes').value,
-                expirationYear: document.getElementById('#validadeAno').value,
+                cardNumber: document.getElementById('#txtNumeroCartao').value,
+                brand: document.getElementById('#txtBandeira').value,
+                cvv: document.getElementById('#txtcvv').value,
+                expirationMonth: document.getElementById('#txtMesExpiracao').value,
+                expirationYear: document.getElementById('#txtAnoExpiracao').value,
                 success: function(response) {
                     //token gerado, esse deve ser usado na chamada da API do Checkout Transparente
                     _cardToken = response.card.token;
