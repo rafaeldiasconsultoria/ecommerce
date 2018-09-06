@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     {nome: 'Produto 5', valor: 123.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'}},
     {nome: 'Produto 6', valor: 123.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'}},
     {nome: 'Produto 7', valor: 123.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'}},
-    {nome: 'Produto 8', valor: 123.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\2.jpg'}}
+    {nome: 'Produto 8', valor: 123.45, descricao: 'Produto Teste de teste', imagens: {principal: '\\images\\produtos\\Asset.jpg'}}
   ];
 
   var _produtosPromocao = [
