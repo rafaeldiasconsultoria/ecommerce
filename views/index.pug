@@ -14,7 +14,7 @@ block content
           p 
             b #{_produto.nome}
             br
-            = _produto.descricao.substring(0, 22) + '...'
+            = _produto.descricao
           if !_produto.desconto
             b R$ #{_produto.valor}
           else
