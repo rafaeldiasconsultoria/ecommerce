@@ -3,6 +3,15 @@ var router = express.Router();
 var Request = require('request');
 var _produtos = [];
 
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://rafael-dias-93909.firebaseio.com"
+});
+
 router.options('/', function (req, res, next) {
   var headers = {};
   // set header to handle the CORS
