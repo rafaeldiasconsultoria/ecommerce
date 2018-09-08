@@ -8,11 +8,11 @@ const admin = require('firebase-admin');
 // });
 admin.initializeApp({
   credential: admin.credential.cert({
-    projectId: proccess.env.GoogleProjectId,
-    clientEmail: proccess.env.GoogleClientEmail,
-    privateKey: proccess.env.GooglePrivateKey
+    projectId: process.env.GoogleProjectId,
+    clientEmail: process.env.GoogleClientEmail,
+    privateKey: process.env.GooglePrivateKey
   }),
-  databaseURL: proccess.env.GoogleDatabaseURL
+  databaseURL: process.env.GoogleDatabaseURL
 });
 var firestore = admin.firestore();
 
