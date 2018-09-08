@@ -22,40 +22,21 @@ router.options('/', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  var _produtos = [];
-  var headers = {};
   // set header to handle the CORS
   res.header('Access-Control-Allow-Origin', '*');
+  
+  var _produtos = []; 
   firestore.collection('produtos').get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
         _produtos.push(doc.data());
+        console.log(doc.data());
       });
+      res.send(_produtos);
     })
     .catch((err) => {
       console.log('Error getting documents', err);
     });
-
-  // _produtos = [{
-  //   "nome": "Produto de Teste de Teste",
-  //   "descricao": "Descrição do produto de teste de teste",
-  //   "preco": "R$ 45,56",
-  //   "precoPromocao": "R$ 34,56"
-  // },
-  // {
-  //   "nome": "Produto de Teste de Teste",
-  //   "descricao": "Descrição do produto de teste de teste",
-  //   "preco": "R$ 45,56",
-  //   "precoPromocao": "R$ 34,56"
-  // },
-  // {
-  //   "nome": "Produto de Teste de Teste",
-  //   "descricao": "Descrição do produto de teste de teste",
-  //   "preco": "R$ 45,56",
-  //   "precoPromocao": "R$ 34,56"
-  // }];
-
-  res.send(_produtos);
 });
 
 module.exports = router;
