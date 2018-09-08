@@ -35,19 +35,6 @@ app.use('/checkout-sucesso', checkoutSucessoRouter);
 app.use('/api/v1/checkout', apiCheckoutRouter);
 app.use('/api/v1/produto', apiProdutoRouter);
 
-app.use((req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    var headers = {};
-    // set header to handle the CORS
-    headers['Access-Control-Allow-Origin'] = '*';
-    headers['Access-Control-Allow-Headers'] = 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With';
-    headers['Access-Contrl-Allow-Methods'] = 'PUT, POST, GET, DELETE, OPTIONS';
-    headers["Access-Control-Max-Age"] = '86400';
-    res.writeHead(200, headers);
-    res.end();
-  }
-});
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
