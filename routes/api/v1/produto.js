@@ -4,8 +4,17 @@ var Request = require('request');
 
 const admin = require('firebase-admin');
 var serviceAccount = require("./aut.json");
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert({
+    projectId: proccess.env.GoogleProjectId,
+    clientEmail: proccess.env.GoogleClientEmail,
+    privateKey: proccess.env.GooglePrivateKey
+  }),
+  databaseURL: proccess.env.GoogleDatabaseURL
 });
 var firestore = admin.firestore();
 
