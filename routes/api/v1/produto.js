@@ -3,13 +3,13 @@ var router = express.Router();
 var Request = require('request');
 var _produtos = [];
 
-var admin = require("firebase-admin");
-var serviceAccount = require("path/to/serviceAccountKey.json");
 
+const admin = require('firebase-admin');
+var serviceAccount = require("./aut.json");
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://rafael-dias-93909.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount)
 });
+var firestore = admin.firestore();
 
 router.options('/', function (req, res, next) {
   var headers = {};
@@ -27,24 +27,34 @@ router.get('/', function (req, res, next) {
   var headers = {};
   // set header to handle the CORS
   res.header('Access-Control-Allow-Origin', '*');
-  _produtos = [{
-    "nome": "Produto de Teste de Teste",
-    "descricao": "Descrição do produto de teste de teste",
-    "preco": "R$ 45,56",
-    "precoPromocao": "R$ 34,56"
-  },
-  {
-    "nome": "Produto de Teste de Teste",
-    "descricao": "Descrição do produto de teste de teste",
-    "preco": "R$ 45,56",
-    "precoPromocao": "R$ 34,56"
-  },
-  {
-    "nome": "Produto de Teste de Teste",
-    "descricao": "Descrição do produto de teste de teste",
-    "preco": "R$ 45,56",
-    "precoPromocao": "R$ 34,56"
-  }];
+  firestore.collection('produtos').get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        _produtos.push(doc.data());
+      });
+    })
+    .catch((err) => {
+      console.log('Error getting documents', err);
+    });
+
+  // _produtos = [{
+  //   "nome": "Produto de Teste de Teste",
+  //   "descricao": "Descrição do produto de teste de teste",
+  //   "preco": "R$ 45,56",
+  //   "precoPromocao": "R$ 34,56"
+  // },
+  // {
+  //   "nome": "Produto de Teste de Teste",
+  //   "descricao": "Descrição do produto de teste de teste",
+  //   "preco": "R$ 45,56",
+  //   "precoPromocao": "R$ 34,56"
+  // },
+  // {
+  //   "nome": "Produto de Teste de Teste",
+  //   "descricao": "Descrição do produto de teste de teste",
+  //   "preco": "R$ 45,56",
+  //   "precoPromocao": "R$ 34,56"
+  // }];
 
   res.send(_produtos);
 });
