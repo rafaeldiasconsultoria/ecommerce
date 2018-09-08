@@ -12,6 +12,7 @@ var checkoutSucessoRouter = require('./routes/checkout-sucesso');
 
 // API V1
 var apiCheckoutRouter = require('./routes/api/v1/checkout');
+var apiProdutoRouter = require('./routes/api/v1/produto');
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use('/checkout-sucesso', checkoutSucessoRouter);
 
 // Api V1
 app.use('/api/v1/checkout', apiCheckoutRouter);
+app.use('/api/v1/produto', apiProdutoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
