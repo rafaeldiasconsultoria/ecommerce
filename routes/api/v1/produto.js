@@ -10,7 +10,7 @@ admin.initializeApp({
   credential: admin.credential.cert({
     projectId: process.env.GoogleProjectId,
     clientEmail: process.env.GoogleClientEmail,
-    privateKey: process.env.GooglePrivateKey
+    privateKey: process.env.GooglePrivateKey,
   }),
   databaseURL: process.env.GoogleDatabaseURL
 });
