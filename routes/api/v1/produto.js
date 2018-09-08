@@ -3,12 +3,13 @@ var router = express.Router();
 var Request = require('request');
 var _produtos = [];
 
-const admin = require('firebase-admin');
-var serviceAccount = require('path/to/serviceAccountKey.json');
+var admin = require("firebase-admin");
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://rafael-dias-93909.firebaseio.com"
 });
-var db = admin.firestore();
 
 router.options('/', function (req, res, next) {
   var headers = {};
