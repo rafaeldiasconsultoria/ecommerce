@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Request = require('request');
-var _produtos = [];
-
 
 const admin = require('firebase-admin');
 var serviceAccount = require("./aut.json");
@@ -24,6 +22,7 @@ router.options('/', function (req, res, next) {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+  var _produtos = [];
   var headers = {};
   // set header to handle the CORS
   res.header('Access-Control-Allow-Origin', '*');
